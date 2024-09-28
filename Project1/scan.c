@@ -14,10 +14,18 @@ typedef enum
 {
   START,
   INASSIGN,
-  INCOMMENT,
   INNUM,
   INID,
-  DONE
+  DONE,
+
+  // 추가한 부분
+  INEQ,
+  INLT,
+  INGT,
+  INNE,
+  INOVER,
+  INCOMMENT,
+  INCOMMENT_
 } StateType;
 
 /* lexeme of identifier or reserved word */
@@ -67,6 +75,7 @@ static void ungetNextChar(void)
 }
 
 /* lookup table of reserved words */
+// reserved words(keywords) 수정
 static struct
 {
   char *str;
