@@ -1,0 +1,22 @@
+
+TINY COMPILATION: example/test4.txt
+        1: reserved word: int
+        1: ID, name= ab
+        1: ;
+        3: reserved word: int
+        3: ID, name= a13b
+        3: ;
+        5: reserved word: int
+        5: NUM, val= 123
+        5: ID, name= abc
+        5: ;
+        7: reserved word: while
+        9: reserved word: return
+        11: reserved word: if
+        13: reserved word: else
+        15: ID, name= for
+        17: ERROR: !
+        19: !=
+        21: ERROR: \
+        23: {
+        24: EOF

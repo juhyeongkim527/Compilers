@@ -36,10 +36,10 @@ void printToken(TokenType token, const char *tokenString)
 
   /* special symbols */
   case ASSIGN:
-    fprintf(listing, ":=\n");
+    fprintf(listing, "=\n");
     break;
   case EQ:
-    fprintf(listing, "=\n");
+    fprintf(listing, "==\n");
     break;
   case NE:
     fprintf(listing, "!=\n");

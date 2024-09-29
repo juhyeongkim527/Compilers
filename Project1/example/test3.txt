@@ -1,0 +1,9 @@
+/* test3.txt /* nested comments*/*/
+
+// int a; int b; int c; 
+
+/ * A */
+
+/* * / B **/
+
+/* C
