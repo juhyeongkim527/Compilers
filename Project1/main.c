@@ -8,9 +8,9 @@
 #include "globals.h"
 
 /* set NO_PARSE to TRUE to get a scanner-only compiler */
-#define NO_PARSE TRUE // Scanner를 위해 FALSE로 변경
+#define NO_PARSE FALSE // TRUE로 설정하면 Parser 이전까지만 실행
 /* set NO_ANALYZE to TRUE to get a parser-only compiler */
-#define NO_ANALYZE FALSE
+#define NO_ANALYZE TRUE // TRUE로 설정하면 Analyzer 이전까지만 실행
 
 /* set NO_CODE to TRUE to get a compiler that does not
  * generate code
