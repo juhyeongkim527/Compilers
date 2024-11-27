@@ -1,6 +1,6 @@
 /****************************************************/
 /* File: main.c                                     */
-/* Main program for TINY compiler                   */
+/* Main program for C-MINUS compiler                   */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
 /****************************************************/
@@ -8,9 +8,9 @@
 #include "globals.h"
 
 /* set NO_PARSE to TRUE to get a scanner-only compiler */
-#define NO_PARSE TRUE // Scanner를 위해 FALSE로 변경
+#define NO_PARSE FALSE // TRUE로 설정하면 Parser 이전까지만 실행
 /* set NO_ANALYZE to TRUE to get a parser-only compiler */
-#define NO_ANALYZE FALSE
+#define NO_ANALYZE TRUE // TRUE로 설정하면 Analyzer 이전까지만 실행
 
 /* set NO_CODE to TRUE to get a compiler that does not
  * generate code
@@ -38,8 +38,8 @@ FILE *code;
 
 /* allocate and set tracing flags */
 int EchoSource = FALSE;
-int TraceScan = TRUE; // Scanner를 위해 TRUE로 변경
-int TraceParse = FALSE;
+int TraceScan = FALSE; // Parser를 위해 FALSE로 변경
+int TraceParse = TRUE; // Parser를 위해 TRUE로 변경
 int TraceAnalyze = FALSE;
 int TraceCode = FALSE;
 
@@ -64,7 +64,7 @@ main(int argc, char *argv[])
     exit(1);
   }
   listing = stdout; /* send listing to screen */
-  fprintf(listing, "\nTINY COMPILATION: %s\n", pgm);
+  fprintf(listing, "\nC-MINUS COMPILATION: %s\n", pgm);
 #if NO_PARSE
   while (getToken() != ENDFILE)
     ;

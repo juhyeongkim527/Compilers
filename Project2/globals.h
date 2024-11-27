@@ -1,7 +1,7 @@
 /****************************************************/
 /* File: globals.h                                  */
 /* Yacc/Bison Version                               */
-/* Global types and vars for TINY compiler          */
+/* Global types and vars for C-MINUS compiler          */
 /* must come before other include files             */
 /* Compiler Construction: Principles and Practice   */
 /* Kenneth C. Louden                                */
@@ -64,31 +64,29 @@ extern int lineno; /* source line number for listing */
 
 typedef enum
 {
-   StmtK,
-   ExpK
-} NodeKind;
-typedef enum
-{
-   IfK,
-   RepeatK,
+   VarDeclK,
+   FunDeclK,
+   TypeK,
+   ParamK,
+   CompStmtK,
+   SelectStmtK,
+   IterStmtK,
+   RetStmtK,
    AssignK,
-   ReadK,
-   WriteK
-} StmtKind;
-typedef enum
-{
    OpK,
+   CallK,
+   VarExpK,
    ConstK,
-   IdK
-} ExpKind;
+} NodeKind;
 
-/* ExpType is used for type checking */
+/* NodeType is used for type checking */
 typedef enum
 {
+   Int,
    Void,
-   Integer,
-   Boolean
-} ExpType;
+   IntArray,
+   VoidArray
+} NodeType;
 
 #define MAXCHILDREN 3
 
@@ -97,19 +95,22 @@ typedef struct treeNode
    struct treeNode *child[MAXCHILDREN];
    struct treeNode *sibling;
    int lineno;
+
+   /* StmtKind, ExpKind를 NodeKind로 통합 */
    NodeKind nodekind;
-   union
-   {
-      StmtKind stmt;
-      ExpKind exp;
-   } kind;
-   union
-   {
-      TokenType op;
-      int val;
-      char *name;
-   } attr;
-   ExpType type; /* for type checking of exps */
+
+   /* ExpType -> NodeType 통합 */
+   NodeType type;
+
+   /* union attr 멤버 그대로 사용 (Stmt, Exp 통합) */
+   TokenType op;
+   int val;
+   char *name;
+
+   /* 1. If Statement: <-> If-Else Statment:
+    * 2. Non-value Return Statement <-> Return Statement:
+    * 를 구분하기 위한 flag 변수 */
+   int flag;
 } TreeNode;
 
 /**************************************************/
