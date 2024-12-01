@@ -1,0 +1,3 @@
+
+C-MINUS COMPILATION: example/basic_output/basic_1-2.cm
+Error: The void-type variable is declared at line 3 (name : "x")

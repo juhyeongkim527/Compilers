@@ -85,10 +85,13 @@ typedef enum
    Int,
    Void,
    IntArray,
-   VoidArray
+   VoidArray,
+   Undetermined
 } NodeType;
 
 #define MAXCHILDREN 3
+
+struct ScopeListRec;
 
 typedef struct treeNode
 {
@@ -111,6 +114,8 @@ typedef struct treeNode
     * 2. Non-value Return Statement <-> Return Statement:
     * 를 구분하기 위한 flag 변수 */
    int flag;
+
+   struct ScopeListRec *scope;
 } TreeNode;
 
 /**************************************************/

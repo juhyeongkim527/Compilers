@@ -1,0 +1,32 @@
+void main(void)
+{
+    {
+        int x;
+        int y;
+    }
+    x;
+    x;
+    y;
+
+    k();
+    k();
+    
+    z = x + y;
+    
+    return;
+}
+
+int arrayError(void){
+    
+    int x;
+    int y[3];
+    
+    x[5] = 3;
+    y[main()] = 3;
+    
+    return y;
+}
+
+void main(void)
+{
+}

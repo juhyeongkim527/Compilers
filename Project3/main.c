@@ -10,12 +10,12 @@
 /* set NO_PARSE to TRUE to get a scanner-only compiler */
 #define NO_PARSE FALSE // TRUE로 설정하면 Parser 이전까지만 실행
 /* set NO_ANALYZE to TRUE to get a parser-only compiler */
-#define NO_ANALYZE FALSE // FALSE로 설정하여 Analyze까지 실행
+#define NO_ANALYZE FALSE // TRUE로 설정하면 Analyzer 이전까지만 실행
 
 /* set NO_CODE to TRUE to get a compiler that does not
  * generate code
  */
-#define NO_CODE FALSE
+#define NO_CODE TRUE // TRUE로 설정하여 Code Generation을 실행하지 않음
 
 #include "util.h"
 #if NO_PARSE
@@ -38,9 +38,9 @@ FILE *code;
 
 /* allocate and set tracing flags */
 int EchoSource = FALSE;
-int TraceScan = FALSE;   // Analyzer를 위해 FALSE로 변경
-int TraceParse = FALSE;  // Analyzer를 위해 FALSE로 변경
-int TraceAnalyze = TRUE; // Analyzer를 위해 TRUE로 변경
+int TraceScan = FALSE;    // Analyzer를 위해 FALSE로 변경
+int TraceParse = FALSE;   // Analyzer를 위해 FALSE로 변경
+int TraceAnalyze = FALSE; // Symbol Table 출력시 TRUE로 변경
 int TraceCode = FALSE;
 
 int Error = FALSE;

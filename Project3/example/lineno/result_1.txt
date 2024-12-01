@@ -1,0 +1,4 @@
+
+C-MINUS COMPILATION: example/lineno/lineno_1.cm
+Error: Symbol "y" is redefined at line 5 (already defined at line 4 )
+Error: Symbol "y" is redefined at line 7 (already defined at line 4 5 )

@@ -217,14 +217,14 @@ expression_stmt : expression SEMI {$$ = $1;}
 selection_stmt : IF LPAREN expression RPAREN statement 
                  { 
                   $$ = newTreeNode(SelectStmtK);
-                  $$->lineno = lineno; 
+                  $$->lineno = $5->lineno;
                   $$->child[0] = $3;
                   $$->child[1] = $5;
                  }
                | IF LPAREN expression RPAREN statement ELSE statement
                  { 
                   $$ = newTreeNode(SelectStmtK);
-                  $$->lineno = lineno; 
+                  $$->lineno = $5->lineno;
                   $$->flag = TRUE;
                   $$->child[0] = $3;  
                   $$->child[1] = $5; 
@@ -272,7 +272,7 @@ var : identifier
 expression : var ASSIGN expression
              {
               $$ = newTreeNode(AssignK);
-              $$->lineno = lineno;
+              $$->lineno = $1->lineno;
               $$->child[0] = $1;
               $$->child[1] = $3;
              }
@@ -283,7 +283,7 @@ simple_expression : additive_expression relop additive_expression
                     {
                       $$ = newTreeNode(OpK);
                       $$->op = $2->op;
-                      $$->lineno = lineno;
+                      $$->lineno = $1->lineno;
                       $$->child[0] = $1;
                       $$->child[1] = $3;
                     }
@@ -331,7 +331,7 @@ relop : EQ
 additive_expression : additive_expression addop term
                       {
                         $$ = newTreeNode(OpK);
-                        $$->lineno = lineno;
+                        $$->lineno = $1->lineno;
                         $$->op = $2->op;
                         $$->child[0] = $1;
                         $$->child[1] = $3;              
@@ -355,7 +355,7 @@ addop : PLUS
 term : term mulop factor
        {
         $$ = newTreeNode(OpK);
-        $$->lineno = lineno;
+        $$->lineno = $1->lineno;
         $$->op = $2->op;
         $$->child[0] = $1;
         $$->child[1] = $3;

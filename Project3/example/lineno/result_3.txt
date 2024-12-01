@@ -1,0 +1,4 @@
+
+C-MINUS COMPILATION: example/lineno/lineno_3.cm
+Error: invalid operation at line 6
+Error: invalid operation at line 6

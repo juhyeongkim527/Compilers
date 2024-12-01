@@ -1,0 +1,5 @@
+
+C-MINUS COMPILATION: example/undeclared/undeclared_3.cm
+Error: undeclared variable "x" is used at line 4
+Error: invalid operation at line 4
+Error: invalid operation at line 5

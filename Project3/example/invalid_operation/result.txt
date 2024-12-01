@@ -1,0 +1,4 @@
+
+C-MINUS COMPILATION: example/invalid_operation/invalid_op.cm
+Error: invalid operation at line 7
+Error: invalid assignment at line 7

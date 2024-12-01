@@ -1,0 +1,14 @@
+
+C-MINUS COMPILATION: example/self_test/test.cm
+Error: undeclared variable "x" is used at line 7
+Error: undeclared variable "y" is used at line 9
+Error: undeclared function "k" is called at line 11
+Error: undeclared variable "z" is used at line 14
+Error: Symbol "main" is redefined at line 30 (already defined at line 1 )
+Error: Invalid function call at line 11 (name : "k")
+Error: Invalid function call at line 12 (name : "k")
+Error: invalid operation at line 14
+Error: invalid assignment at line 14
+Error: Invalid array indexing at line 24 (name : "x"). indexing can only allowed for int[] variables
+Error: Invalid array indexing at line 25 (name : "y"). indicies should be integer
+Error: Invalid return at line 27
